@@ -1,0 +1,11 @@
+{
+  "name": "hireai-job-portal",
+  "version": "1.0.0",
+  "description": "AI-Powered Job Portal - MERN Stack",
+  "scripts": {
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "setup": "npm run install-all && echo 'Setup complete! Copy backend/.env.example to backend/.env and fill in your keys, then run npm run dev:backend and npm run dev:frontend in separate terminals.'"
+  }
+}
