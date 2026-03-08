@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // ✅ Render pe deployed backend — laptop band ho ya on, hamesha kaam karega!
-const BASE_URL = 'https://hireai-backend-jt4s.onrender.com/api';
+const BASE_URL = 'https://hireai-backend-2.onrender.com/api';
 
 const API = axios.create({ baseURL: BASE_URL });
 
