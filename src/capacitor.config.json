@@ -1,0 +1,39 @@
+{
+  "appId": "com.talentbridge.app",
+  "appName": "TalentBridge",
+  "webDir": "build",
+  "server": {
+    "androidScheme": "http",
+    "cleartext": true,
+    "allowNavigation": [
+      "10.163.34.112",
+      "10.163.34.112:5000",
+      "localhost:5000"
+    ]
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0,
+      "launchAutoHide": true,
+      "backgroundColor": "#07070f",
+      "androidSplashResourceName": "splash",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "StatusBar": {
+      "style": "Dark",
+      "backgroundColor": "#07070f",
+      "overlaysWebView": false
+    },
+    "Keyboard": {
+      "resize": "body",
+      "resizeOnFullScreen": true
+    }
+  }
+}

@@ -128,7 +128,7 @@ export default function AIMatches() {
                   {job.skills?.slice(0, 5).map(s => <span key={s} className="skill-tag">{s}</span>)}
                 </div>
 
-                <button className="btn btn-primary btn-sm" onClick={() => navigate(`/jobs/${job._id}`)}>
+                <button className="btn btn-primary btn-sm" onClick={() => navigate(`/jobs/${job._id || job.id}`)}>
                   View Job <ChevronRight size={14} />
                 </button>
               </div>

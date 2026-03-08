@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api';
+// ⚡ NGROK URL — har baar ngrok restart karne pe update karo
+const NGROK_URL = 'https://balsamaceous-zoraida-unheedfully.ngrok-free.dev/api';
 
-const API = axios.create({ baseURL: BASE_URL });
+const API = axios.create({ baseURL: NGROK_URL });
 
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
@@ -57,6 +58,29 @@ export const aiAPI = {
   scoreApplication: (id) => API.post(`/ai/score-application/${id}`),
   generateCoverLetter: (jobId) => API.post('/ai/generate-cover-letter', { jobId }),
   generateJobDescription: (data) => API.post('/ai/generate-job-description', data),
+  analyzeResume: (data) => API.post('/ai/analyze-resume', data),
+  predictSalary: (data) => API.post('/ai/salary-predict', data),
+  getSkillQuiz: (skill) => API.get(`/ai/skill-quiz/${skill}`),
+};
+
+export const chatAPI = {
+  getConversations: () => API.get('/chat/conversations'),
+  getMessages: (userId) => API.get(`/chat/messages/${userId}`),
+  sendMessage: (data) => API.post('/chat/send', data),
+  getUsers: () => API.get('/chat/users'),
+};
+
+export const interviewAPI = {
+  schedule: (data) => API.post('/interviews/schedule', data),
+  getMy: () => API.get('/interviews/my'),
+  update: (id, data) => API.put(`/interviews/${id}`, data),
+};
+
+export const notificationAPI = {
+  getAll: () => API.get('/notifications'),
+  markAllRead: () => API.put('/notifications/read-all'),
+  markRead: (id) => API.put(`/notifications/${id}/read`),
+  delete: (id) => API.delete(`/notifications/${id}`),
 };
 
 export default API;
