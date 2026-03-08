@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// ⚡ NGROK URL — har baar ngrok restart karne pe update karo
-const NGROK_URL = 'https://balsamaceous-zoraida-unheedfully.ngrok-free.dev/api';
+// ✅ Render pe deployed backend — laptop band ho ya on, hamesha kaam karega!
+const BASE_URL = 'https://hireai-backend-jt4s.onrender.com/api';
 
-const API = axios.create({ baseURL: NGROK_URL });
+const API = axios.create({ baseURL: BASE_URL });
 
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
