@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const AuthContext = createContext(null);
 
+const BASE_URL = 'https://hireai-backend-2.onrender.com/api';
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
@@ -20,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchMe = async () => {
     try {
-      const { data } = await axios.get('/api/auth/me');
+      const { data } = await axios.get(`${BASE_URL}/auth/me`);
       setUser(data.user);
       setProfile(data.profile);
     } catch {
@@ -31,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const { data } = await axios.post('/api/auth/login', { email, password });
+    const { data } = await axios.post(`${BASE_URL}/auth/login`, { email, password });
     localStorage.setItem('token', data.token);
     setToken(data.token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (formData) => {
-    const { data } = await axios.post('/api/auth/register', formData);
+    const { data } = await axios.post(`${BASE_URL}/auth/register`, formData);
     localStorage.setItem('token', data.token);
     setToken(data.token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
